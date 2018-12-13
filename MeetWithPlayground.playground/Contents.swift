@@ -413,4 +413,23 @@ for (nameInD, ageInd) in agesAndNames {
 age1
 name1
 
+// Optinals //////////////////////////////////////////////////
+var fuel: Int? //optinals are only variables
+fuel = 20
+fuel = 40
+//print("\(fuel!) liters left")
 
+if let availableFuel = fuel {
+    print("\(availableFuel) liters left")
+} else {
+    print("no fuel data available")
+}
+
+func checkFuel() {
+    guard let availableFuel = fuel else {
+        print("no fuel data available")
+        return
+    }
+     print("\(availableFuel) liters left")
+}
+checkFuel()
