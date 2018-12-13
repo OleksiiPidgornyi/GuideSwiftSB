@@ -240,3 +240,32 @@ case 100:
 default:
     break
 }
+
+// Cycle FOR-IN ///////////////////////////////////////////////////////////////////////////
+let array = [1, 2, 3, 4]
+let arrayOfStrings = ["a", "b", "c"]
+for index in array {
+    print(index)
+}
+for index in arrayOfStrings {
+    print(index)
+}
+
+let string1 = "some string"
+
+for char in string1 {
+    print(char)
+}
+
+let nameAndFingers = ["Ivan": 20, "Svetlana": 18, "Nadejda": 15]
+for (name, numberOfFingers) in nameAndFingers {
+    print("Pyro name is \(name) and number of fingers is \(numberOfFingers)")
+}
+
+for (index, value) in nameAndFingers.enumerated() {
+    print(index, value)
+}
+
+for i in stride(from: 0, through: 10, by: 5) {//iteration with a step of 5 from 0 to 10 (through means - "including")
+    print(i)
+}
