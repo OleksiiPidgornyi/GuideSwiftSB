@@ -285,3 +285,63 @@ repeat {
     timer -= 1
 } while timer > 0
 print("Start")
+
+//Functions ///////////////////////////////////////////////////////////
+//1.Function that accept nothing and return nothing
+func sayHello() -> Void {
+    print("Hello")
+}
+sayHello()
+//2.Function accepting one parameter
+func oneParam(param: Int) {
+    var oops = param
+    oops += 1
+}
+oneParam(param: 11)
+//3.Function not accepting parameters, but return value
+func returnValue() -> Int {
+    return 10
+}
+
+let a = returnValue()
+//4.Function that accepts couple of parameters and returns a value
+func giveMeYour(name: String, andSecondName: String) -> String {
+    return "Your full name is \(name) \(andSecondName)"
+}
+giveMeYour(name: "O", andSecondName: "P")
+//5.Function that accepts array as a parameter and using incapsulated function for the work
+func calcMoneyIn(array: [Int]) -> Int {
+    var sum = 0
+    func sayMoney() {
+        print(sum)
+    }
+    for item in array {
+        sum += item
+    }
+    sayMoney()
+    return sum
+}
+calcMoneyIn(array: [1,2,3,4,5])
+//6.Function that accepts variable name of parameters
+func findSum(ofIntegers integers: Int...) -> Int {
+    var sum = 0
+    
+    for item in integers {
+        sum += item
+    }
+    return sum
+}
+findSum(ofIntegers: 1,2,3,4,5,6)
+//7.names of parameters of function
+func sum(_: Int) -> Int {
+    return 10
+}
+//8.function in case of returning
+func whatToDo(missed: Bool) -> (Int) -> Int {
+    func missedCountUp(input: Int) -> Int {return input + 1}
+    func missedCountDown(input: Int) -> Int {return input - 1}
+    
+    return missed ? missedCountUp : missedCountDown
+}
+var missedCount = 0
+whatToDo(missed: true)(missedCount)
