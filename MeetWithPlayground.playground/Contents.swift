@@ -79,3 +79,23 @@ let weatherDescription = "Temperature is about 12c above zero and wind speed is 
 let weatherDescription1 = "Temperature is about \(temperature) above zero and wind speed is about \(windSpeed) m/s"
 let string = "\(1+2)" + "\(2+3)"
 
+//ARRAYS//////////////////////////////////////////////
+let arrayOne = Array<Int>()//the same
+let arrayTwo = [Int]()//the same
+var arrayThree: [Int] = []//the same
+let arrayFour = [1, 2, 3, 4]
+let arrayFive = [Int](repeating: 10, count: 6)
+
+arrayThree += arrayFive
+arrayThree
+
+arrayFour[2]
+arrayThree[1...3] = [15]
+arrayThree.append(100)
+arrayThree.insert(105, at: 2)
+arrayThree.remove(at: 4)
+arrayThree
+arrayThree.removeFirst()
+arrayThree
+let deletedValue = arrayThree.removeLast()
+arrayThree.reverse()
