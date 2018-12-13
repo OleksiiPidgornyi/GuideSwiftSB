@@ -467,3 +467,35 @@ humanOne.name
 var array1 = [Human]()
 array1.append(humanOne)
 array1.append(humanTwo)
+
+// Initializers ///////////////////////////////////////////////////////////
+class Human1 {
+    var name: String
+    var age: Int? = 30
+    var hairs: Bool
+    
+    func description() -> String {
+        if let humanAge = age {
+            return "Hello! My name is \(name) and I'am \(humanAge) years old!"
+        } else {
+            return "Hello! My name is \(name)"
+        }
+    }
+    
+    init() {
+        name = "Ivan"
+        hairs = true
+    }
+    init(name: String, age: Int?, hairs: Bool) {
+        self.name = name
+        self.age = age
+        self.hairs = hairs
+    }
+}
+let human1 = Human1()
+human1.age
+human1.name
+human1.hairs
+
+
+let human2 = Human1(name: "Jason", age: nil, hairs: true)
