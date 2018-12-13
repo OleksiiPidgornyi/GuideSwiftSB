@@ -123,3 +123,29 @@ namesAndAges
 let deletedValue1 = namesAndAges.removeValue(forKey: "Sasha")//old value will be stored into "deletedAge1"
 namesAndAges
 namesAndAges = [:]//remove all values and keys
+
+//SETS///////////////////////////////////////////////////////////////////////////
+let setOne = Set<String>()
+let setTwo: Set<String> = []
+var setThree: Set = [1, 2, 3, 4, 4]
+
+setThree.insert(5)
+setThree.insert(6)
+setThree.insert(7)
+
+setThree.isEmpty
+setThree.count
+setThree.remove(6)
+
+setThree.contains(1)//boolean value
+let boolValue = setThree.contains(1)
+boolValue
+
+let setFromOneToThree: Set = [1, 2, 3]
+let setFromFourToNine: Set = [4, 5, 6, 7, 8, 9]
+
+let allValuesArray = setFromOneToThree.union(setFromFourToNine).sorted()
+let commonValuesSet = setFromOneToThree.intersection(setFromFourToNine)
+
+let notRepeatedValuesArray = setFromOneToThree.symmetricDifference(setFromFourToNine).sorted()
+let subtractedValuesArray = setFromOneToThree.subtracting(setFromFourToNine).sorted()
