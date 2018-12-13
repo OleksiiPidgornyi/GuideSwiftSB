@@ -149,3 +149,48 @@ let commonValuesSet = setFromOneToThree.intersection(setFromFourToNine)
 
 let notRepeatedValuesArray = setFromOneToThree.symmetricDifference(setFromFourToNine).sorted()
 let subtractedValuesArray = setFromOneToThree.subtracting(setFromFourToNine).sorted()
+
+//Instruction IF///////////////////////////////////////////////////////////////////////////
+
+let a1 = 3
+let b1 = 1
+
+if a1 == b1 {
+    print("a1 equals to b1")
+} else if a1 < b1 {
+    print("b1 exceeds a1 by \(b1 - a1)")
+} else if b1 < a1 {
+    print("a1 exceeds b1 by \(a1 - b1)")
+}
+
+let isSunny = true
+var action = ""
+
+if isSunny {
+    action = "I will go for a walk"
+} else {
+    action = "I will sit at home"
+}
+
+action = isSunny ? "I will go for a walk" : "I will sit at home"
+
+//if a1 != b1
+//if a1 <= b1
+//if a1 >= b1
+//if a1 > b1
+//if a1 < b
+// ~= if something is including into diapasone
+
+if 1...4 ~= b1 {
+    print("Hello World!")
+}
+
+if a1 == b1 {
+    
+}
+let c1 = 5
+if c1 == 2 && a1 == 10 || c1 == 6 {
+    print("Hello, coder")
+} else {
+    print("!!!")
+}
