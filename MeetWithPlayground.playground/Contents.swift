@@ -269,3 +269,19 @@ for (index, value) in nameAndFingers.enumerated() {
 for i in stride(from: 0, through: 10, by: 5) {//iteration with a step of 5 from 0 to 10 (through means - "including")
     print(i)
 }
+
+//Cycles WHILE, REPEAT-WHILE ///////////////////////////////////////////////////////////
+var timer = 5
+print("Counting down")
+
+while timer > 0 {
+    print(timer)
+    timer -= 1
+}
+print("Start")
+
+repeat {
+    print(timer)
+    timer -= 1
+} while timer > 0
+print("Start")
