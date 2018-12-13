@@ -376,3 +376,41 @@ let sortedArray = unsortedArray.sorted {
     (number1: Int, number2: Int) -> Bool in
     return number1 < number2
 }
+
+// Tuples ///////////////////////////////////////////////////////////////////
+let one = 1
+let two = 2
+let three = 3
+(one, two, three)
+let boy = (5, "Sergey")
+boy.0
+boy.1
+
+let (first, second, third) = (1,2,3)
+first
+second
+
+let greenPencil = (color: "green", length: 20, weight: 4)
+greenPencil.color
+greenPencil.length
+greenPencil.weight
+let (greenColor, greenLength, greenWeight) = greenPencil
+greenColor
+greenLength
+greenWeight
+
+let agesAndNames = ["Misha": 29, "Kostya": 90, "Mira": 30]
+
+var age1 = 0
+var name1 = ""
+
+for (nameInD, ageInd) in agesAndNames {
+    if age1 < ageInd {
+        age1 = ageInd
+        name1 = nameInD
+    }
+}
+age1
+name1
+
+
