@@ -194,3 +194,26 @@ if c1 == 2 && a1 == 10 || c1 == 6 {
 } else {
     print("!!!")
 }
+
+// Guard ///////////////////////////////////////////////////////////////////////////
+func someFunction(a2: Int, b2: Int) {
+    guard a2 == b2 else {return}
+    //some code to run
+    guard b2 == 11 else {return}
+    //some code to run
+    if a2 == b2 {
+        //some code to run
+        if b2 == 11 {
+            //some code to run
+        }
+    }
+}
+
+for i in 1...5 { //the same
+    guard i != 3 else {continue}
+    print(i)
+}
+for i in 1...5 { //the same
+    guard i == 3 else {break}
+    print(i)
+}
