@@ -35,3 +35,40 @@ let b: Bool = true
 let r = "false"
 let v = Float(123.12323904875092359823475)
 
+//BASIC OPERATORS
+//ARITHMETIC =, -, +,  /, *
+//OPERATOR MODULE % let d = 100 % 6 will be 4
+//СОСТАВНЫЕ ОПЕРАТОРЫ +=, -=, *=, /=
+let e = 1
+var f = 0
+f += e
+//ОПЕРАТОРЫ СРАВНЕНИЯ <=, >=, !=, ==, <, >,
+10 <= 11
+10 == 11
+
+//ОПЕРАТОР ЗАМЕНЯЮЩИЙ nil ??
+let defaultName = "Steve"
+let name: String = "Ivan"
+
+let myName = name ?? defaultName
+
+//УНАРНЫЙ ОПЕРАТОР -, ТЕРНАРНЫЙ ОПЕРАТОР
+-5
+let bool = false
+let t = bool ? 10 : 30
+
+//ЛОГИЧЕСКИЕ ОПЕРАТОРЫ && || !
+let temp = 10
+let wind = 3
+
+if temp >= 10 && wind <= 5 {
+    print("!")
+}
+let bool1 = true
+let bool2 = !bool1
+!bool2
+
+//ОПЕРАТОРЫ ДИАПАЗОНА ... ..<
+1...10
+1..<10
+
