@@ -99,3 +99,27 @@ arrayThree.removeFirst()
 arrayThree
 let deletedValue = arrayThree.removeLast()
 arrayThree.reverse()
+
+
+//DICTIONARIES
+let dict1 = Dictionary<String, String>()//the same
+let dict2 = [String: String]()//the same
+let dict3: [String: String] = [:]//the same
+var namesAndAges = ["Ivan": 30,
+                    "Vitalik": 30,
+                    "Sasha": 25]
+
+namesAndAges.count
+namesAndAges.isEmpty
+
+namesAndAges["Ivan"] = 35
+
+let deletedAge = namesAndAges.updateValue(40, forKey: "Ivan") //old value will be stored into "deletedAge"
+namesAndAges
+namesAndAges["Ivan"] = nil
+namesAndAges
+
+
+let deletedValue1 = namesAndAges.removeValue(forKey: "Sasha")//old value will be stored into "deletedAge1"
+namesAndAges
+namesAndAges = [:]//remove all values and keys
