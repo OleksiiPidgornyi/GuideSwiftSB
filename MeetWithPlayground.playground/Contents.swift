@@ -433,3 +433,37 @@ func checkFuel() {
      print("\(availableFuel) liters left")
 }
 checkFuel()
+
+// Classes ////////////////////////////////////////////////////////
+class Human {
+    var name = "Ivan"
+    var age: Int? = 30
+    var hairs = true
+    
+    func description() -> String {
+        
+        if let humanAge = age {
+            return "Hello! My name is \(name) and I'am \(humanAge) years old!"
+        } else {
+            return "Hello! My name is \(name)!"
+        }
+        
+    }
+}
+
+let humanOne = Human()
+humanOne.name = "Natasha"
+humanOne.name
+humanOne.description()
+
+let humanTwo = Human()
+humanTwo.hairs = false
+humanTwo.name = "Jack"
+humanTwo
+
+//humanOne = humanTwo - if objects are "let" that you can't assign one object to another
+humanOne.name
+
+var array1 = [Human]()
+array1.append(humanOne)
+array1.append(humanTwo)
