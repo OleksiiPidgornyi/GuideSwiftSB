@@ -15,7 +15,7 @@ label.text = str2
 label.layer.cornerRadius = 50
 label.layer.masksToBounds = true
 
-//CONSTANTS AND VARIABLES
+//CONSTANTS AND VARIABLES/////////////////////////////////////////////
 
 var str = "Hello, World"
 var str1 = "Hello, Max"
@@ -23,7 +23,7 @@ var str1 = "Hello, Max"
 str = "Hello, Xcode"
 str1 = "Hello, Tim"
 
-//DATA TYPES
+//DATA TYPES///////////////////////////////////////////////////////////
 //Character, String, Int, Double, Float, Bool
 let x1: Character = "q"
 let y1: String = "Poland"
@@ -35,7 +35,7 @@ let b: Bool = true
 let r = "false"
 let v = Float(123.12323904875092359823475)
 
-//BASIC OPERATORS
+//BASIC OPERATORS///////////////////////////////////////////////////////
 //ARITHMETIC =, -, +,  /, *
 //OPERATOR MODULE % let d = 100 % 6 will be 4
 //СОСТАВНЫЕ ОПЕРАТОРЫ +=, -=, *=, /=
@@ -71,4 +71,11 @@ let bool2 = !bool1
 //ОПЕРАТОРЫ ДИАПАЗОНА ... ..<
 1...10
 1..<10
+
+//INTERPOLATION OF STRINGS//////////////////////////////////////////////
+let temperature = 12
+let windSpeed = 5
+let weatherDescription = "Temperature is about 12c above zero and wind speed is about 5 m/s"
+let weatherDescription1 = "Temperature is about \(temperature) above zero and wind speed is about \(windSpeed) m/s"
+let string = "\(1+2)" + "\(2+3)"
 
