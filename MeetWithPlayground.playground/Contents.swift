@@ -345,3 +345,34 @@ func whatToDo(missed: Bool) -> (Int) -> Int {
 }
 var missedCount = 0
 whatToDo(missed: true)(missedCount)
+
+// Closures /////////////////////////////////////////////////////////
+func whateverFunc() {
+    print("Hello World")
+}
+let closure = {
+    print("Hello World")
+}
+func repeatThreeTimes(closure: () -> ()) {
+    for _ in 0...2 {
+        closure()
+    }
+}
+repeatThreeTimes {closure()}
+print("One more")
+repeatThreeTimes(closure: closure)
+print("One more")
+repeatThreeTimes(closure: {
+    print("Hello World")
+})
+print("One more")
+repeatThreeTimes {
+    () -> () in
+    print("Hello, World!")
+}
+
+let unsortedArray = [123,2,32,67,8797,432]
+let sortedArray = unsortedArray.sorted {
+    (number1: Int, number2: Int) -> Bool in
+    return number1 < number2
+}
