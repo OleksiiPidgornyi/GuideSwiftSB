@@ -217,3 +217,26 @@ for i in 1...5 { //the same
     guard i == 3 else {break}
     print(i)
 }
+
+// Instruction SWITCH ///////////////////////////////////////////////////////////////////////////
+let totalScore = 20
+
+if totalScore == 10 {
+    print("you are not jedi")
+} else if totalScore == 20 {
+    print("you are not jedi")
+} else if totalScore == 100 {
+    print("you are jedi")
+}
+
+switch totalScore {
+case 10, 20:
+    print("you are not jedi")
+    fallthrough
+case 50..<100:
+    print("you are almost jedi")
+case 100:
+    print("you are jedi")
+default:
+    break
+}
