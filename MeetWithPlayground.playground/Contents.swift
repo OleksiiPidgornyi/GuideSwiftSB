@@ -742,3 +742,66 @@ enum Lunch { // or you can put "indirect" before enum and than all cases will be
 }
 
 let myLunch = Lunch.meal(.salad, .soup)
+
+// Structures //////////////////////////////////////////////
+//Simple structure/class
+class Site {
+    //stored properties
+var siteName = "Swiftbook.ru"
+let visitsToday = 1000
+let visitsYesterday = 1000
+    //computed properties
+    var visitsTomorrow: Int {
+        return (visitsToday + visitsYesterday) / 2
+    }
+    //lazy property
+    lazy var someLazyProperty = 1 + 2
+    
+    func description() -> String{
+            return "We had \(visitsYesterday) visitors yesterday. Today we have \(visitsToday) visitors. Tomorrow we will have about \(visitsTomorrow) visitors"
+    }
+}
+let firstWebSite = Site()
+func changeSiteName(site: Site) -> Site {
+    site.siteName = "iphonecoder.ru"
+    return site
+}
+
+changeSiteName(site: firstWebSite)
+firstWebSite.siteName
+
+//Structure
+struct Site1 {
+    //stored properties
+    var siteName = "Swiftbook.ru"
+    let visitsToday = 1000
+    let visitsYesterday = 1000
+    //computed properties
+    var visitsTomorrow: Int {
+        return (visitsToday + visitsYesterday) / 2
+    }
+    //lazy property
+    lazy var someLazyProperty = 1 + 2
+    
+    func description() -> String{
+        return "We had \(visitsYesterday) visitors yesterday. Today we have \(visitsToday) visitors. Tomorrow we will have about \(visitsTomorrow) visitors"
+    }
+}
+var firstWebSite1 = Site1()
+func changeSiteName(site: Site1) -> Site1 {
+    var site = site
+    site.siteName = "iphonecoder.ru"
+    return site
+}
+
+changeSiteName(site: firstWebSite)
+firstWebSite.siteName
+
+///////////////////////////////////
+let secondWebSite = Site()
+let thirdWebSite = firstWebSite
+if firstWebSite === secondWebSite {
+    print("===")
+} else {
+    print("not")
+}
