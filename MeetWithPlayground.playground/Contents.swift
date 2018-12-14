@@ -643,3 +643,7 @@ class Processing {
     let averageProcessing = "average data processing"
     lazy var bigDataProcessing = bigDataProcessingFunc() //lazy by default nil that is why it is "var"
 }
+
+let process = Processing()
+process.bigDataProcessing
+process
