@@ -694,3 +694,51 @@ typealias DictionaryType = [String: Int]
 var dictionary: DictionaryType = [:]
 dictionary["Apartment123"] = 123
 dictionary
+
+// ENUMS //////////////////////////////////////////////
+enum Movement: Int {
+    case forward = 10
+    case backward = 20
+    case left
+    case right
+}
+let movementDirection = Movement.left.rawValue
+
+enum Device {
+    case iPad(color: String), iPhone
+    
+    var year: Int {
+        switch self {
+            case .iPhone: return 2007
+            case .iPad(let color) where color == "black": return 2020
+            case .iPad: return 2010
+        }
+    }
+}
+
+let yearOfProduction = Device.iPad(color: "black").year
+
+enum Character {
+    enum Weapon: Int {
+        case sword = 4
+        case wand = 1
+        
+        var damage: Int {
+            return rawValue * 10
+        }
+    }
+    enum CharacterType {
+        case knight
+        case mage
+    }
+}
+
+let charWeapon = Character.Weapon.sword.damage
+
+enum Lunch { // or you can put "indirect" before enum and than all cases will be indirect
+    case salad
+    case soup
+    indirect case meal(Lunch, Lunch)
+}
+
+let myLunch = Lunch.meal(.salad, .soup)
