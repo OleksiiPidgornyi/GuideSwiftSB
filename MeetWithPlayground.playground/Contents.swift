@@ -499,3 +499,46 @@ human1.hairs
 
 
 let human2 = Human1(name: "Jason", age: nil, hairs: true)
+
+// Inheritance ////////////////////////////////////////////////////////
+//final means "forbidance" to inheritance or to initialize from current class
+class Human2 {
+    //Properties
+    var name: String
+    
+    //Method
+    func tellAboutMe() -> String {
+        return "Hello! My name is \(name)"
+    }
+    //Initializer
+    init(name: String) {
+        self.name = name
+    }
+}
+class Child: Human2 {
+    //Properties
+    var toy = "Horse"
+    //Methods
+    override func tellAboutMe() -> String {
+        let originalText = super.tellAboutMe()
+        return originalText + "And I have a toy \(self.toy)"
+    }
+    //Initializer
+    init(toy: String, name: String) {
+        super.init(name: name)
+        self.toy = toy
+    }
+    override init(name: String) {
+        self.toy = "Hummer"
+        super.init(name: name)
+    }
+}
+
+let child = Child(name: "Simphson")
+child.tellAboutMe()
+child.name
+child.toy
+
+let child1 = Child(toy: "Dinosaur", name: "Max")
+child1.tellAboutMe()
+
