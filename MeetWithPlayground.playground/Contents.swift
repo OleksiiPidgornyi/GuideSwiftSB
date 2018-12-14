@@ -871,4 +871,40 @@ for item in arrayOfFurniture {
     }
 }
 
+// Any, AnyObject //////////////////////////////////////////////////////////
+class A {}
+class B {}
+class C {}
 
+let a2 = A()
+let b2 = A()
+let c2 = A()
+let d2 = B()
+let e2 = C()
+
+struct D {
+    
+}
+
+let f2 = D()
+
+enum E {
+    case a
+    case b
+}
+
+let g2 = E.b
+
+let array2: [AnyObject] = [a2, b2, c2, d2, e2] //AnyObject means only objects
+let arrayTwo2: [Any] = [a2, b2, c2, d2, e2, f2, g2, true, "String", 0.95, 5 + 4] //Any means everything except nil
+
+for i in arrayTwo2 {
+    switch i {
+    case let item as Int:
+        print("this \(item) is Int")
+    case let item as String:
+        print("this \(item) is String")
+    default:
+        print("other type")
+    }
+}
