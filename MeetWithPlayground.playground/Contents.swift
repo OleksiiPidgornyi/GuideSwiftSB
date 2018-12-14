@@ -675,3 +675,10 @@ employee.accessToDB
 
 employee.accessLevel = 1
 employee.accessToDB
+
+//Levels of access //////////////////////////////////////////////
+// internal
+//private
+//public
+//open
+
