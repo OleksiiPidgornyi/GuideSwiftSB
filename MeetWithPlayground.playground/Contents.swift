@@ -647,3 +647,31 @@ class Processing {
 let process = Processing()
 process.bigDataProcessing
 process
+
+//Property observers /////////////////////////////////////////
+
+class SecretLabEmployee {
+    var accessLevel  = 0 {
+        willSet(newValue) {
+            print("new boss is about to come")
+        print("last time I had access level  \(newValue)")
+        }
+        didSet(oldValue) {
+            if accessLevel > 0 {
+                accessToDB = true
+            } else {
+                accessToDB = false
+            }
+            print("new boss just come")
+            print("last time I had access level \(oldValue)")
+        }
+    }
+    var accessToDB = false
+}
+
+let employee = SecretLabEmployee()
+employee.accessLevel
+employee.accessToDB
+
+employee.accessLevel = 1
+employee.accessToDB
