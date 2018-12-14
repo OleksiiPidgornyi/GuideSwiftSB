@@ -593,3 +593,43 @@ person.secondName
 person.fullName = "Zinaida Petrova"
 person.name
 person.secondName
+
+// Class properties /////////////////////////////////////////
+class Car {
+    //Stored properties
+    let products: Int
+    let people: Int
+    let pets: Int
+    let selfWeight = 1500
+    let maxWeight = 2000
+    
+    //Computed properties
+    class var selfWeight: Int {return 1500}
+    class var maxWeight: Int {return 2000}
+    var totalWeight: Int {
+        get {
+            return products + people + pets + Car.selfWeight
+        }
+        set {
+            
+        }
+    }
+    
+    //Initializer
+    init(products: Int, people: Int, pets: Int) {
+        self.products = products
+        self.people = people
+        self.pets = pets
+    }
+}
+
+let car = Car(products: 30, people: 300, pets: 50)
+let maxWeight = Car.maxWeight
+let carWeight = Car.selfWeight
+let totalWeight = car.totalWeight
+
+if maxWeight < totalWeight {
+    print("You can't drive because car is overloaded: \(totalWeight - maxWeight)")
+} else {
+    print("You can drive!")
+}
