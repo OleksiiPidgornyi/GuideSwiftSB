@@ -633,3 +633,14 @@ if maxWeight < totalWeight {
 } else {
     print("You can drive!")
 }
+
+//Lazy properties /////////////////////////////////////////
+func bigDataProcessingFunc() -> String {
+    return "very long process"
+}
+
+class Processing {
+    let smallDataProcessing = "small data processing"
+    let averageProcessing = "average data processing"
+    lazy var bigDataProcessing = bigDataProcessingFunc() //lazy by default nil that is why it is "var"
+}
