@@ -542,3 +542,54 @@ child.toy
 let child1 = Child(toy: "Dinosaur", name: "Max")
 child1.tellAboutMe()
 
+// Computed Properties //////////////////////////////////////////////
+class Rectengular {
+    let height : Int
+    let width : Int
+    let depth : Int
+    
+    var volume: Int {
+        return height * width * depth
+    }
+    
+    init(height: Int, width: Int, depth: Int) {
+        self.height = height
+        self.width = width
+        self.depth = depth
+    }
+}
+let rect = Rectengular(height: 10, width: 12, depth: 13)
+rect.volume
+
+
+class Person {
+    //Properties
+    //Stored properties
+    var name: String
+    var secondName: String
+    //Computed properties
+    var fullName: String {
+        get {
+        return name + " " + secondName
+        }
+        set(anotherNewValue) {
+            let array = anotherNewValue.components(separatedBy: " ")
+            name = array[0]
+            secondName = array[1]
+        }
+    }
+    //Initializer
+    init(name: String, secondName: String) {
+        self.name = name
+        self.secondName = secondName
+    }
+}
+
+let person = Person(name:"Ivan", secondName: "Akulov")
+person.fullName
+
+person.name
+person.secondName
+person.fullName = "Zinaida Petrova"
+person.name
+person.secondName
