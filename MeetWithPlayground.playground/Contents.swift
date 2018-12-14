@@ -638,7 +638,6 @@ if maxWeight < totalWeight {
 func bigDataProcessingFunc() -> String {
     return "very long process"
 }
-
 class Processing {
     let smallDataProcessing = "small data processing"
     let averageProcessing = "average data processing"
