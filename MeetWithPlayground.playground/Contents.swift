@@ -908,3 +908,41 @@ for i in arrayTwo2 {
         print("other type")
     }
 }
+
+// ARC ////////////////////////////////////////////////////////////////////
+class Person2 {
+     var dog: Dog2?
+    
+    deinit {
+        print("Person is free")
+    }
+}
+class  Dog2 {
+   unowned var person: Person2 // unowned must have some value or initialized
+    init() {
+        self.person = Person2()
+    }
+    deinit {
+        print("Dog is free")
+    }
+}
+let firstScope = true
+let secondScope = true
+
+//---------------------------------FIRST----------------------------------
+if firstScope {
+    let person = Person2()
+    let dog = Dog2()
+    //---------------------------------SECOND----------------------------------
+    if secondScope {
+        
+        
+        person.dog = dog
+        dog.person = person
+        print("second scope has ended")
+    }
+    //---------------------------------SECOND ENDS----------------------------------
+    print("firstScope has ended")
+}
+//---------------------------------FIRST ENDS----------------------------------
+print("finish")
