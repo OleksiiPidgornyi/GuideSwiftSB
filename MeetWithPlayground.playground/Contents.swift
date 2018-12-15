@@ -911,12 +911,14 @@ for i in arrayTwo2 {
 
 // ARC ////////////////////////////////////////////////////////////////////
 class Person2 {
+    // weak only works with optinals
      var dog: Dog2?
     
     deinit {
         print("Person is free")
     }
 }
+
 class  Dog2 {
    unowned var person: Person2 // unowned must have some value or initialized
     init() {
@@ -946,3 +948,52 @@ if firstScope {
 }
 //---------------------------------FIRST ENDS----------------------------------
 print("finish")
+
+
+//ARC in Closures ///////////////////////////////////////////////////////////////
+
+var x2 = "a"
+let closure2: () -> () = {
+    print(x)
+}
+closure2()
+x2 = "b"
+closure2()
+
+
+// Optinal chaining //////////////////////////////////////////////////////////////
+class Person3 {
+    let job3: Job3? = Job3()
+    let workers: [Worker3]? = [Worker3()]
+}
+class Worker3 {
+    let name = "Petya"
+    
+    func work() {
+        print("I do some job")
+    }
+}
+class Job3 {
+    let salary: Salary3? = Salary3()
+}
+class Salary3 {
+    let salary = 100000
+    
+    func showSalary() -> String {
+        return "\(salary)"
+    }
+}
+
+let person3 = Person3()
+if let job3 = person3.job3 {
+    if let salary = job3.salary {
+        salary.salary
+    }
+}
+if let job3 = person3.job3, let salary3 = job3.salary {
+    salary3.salary
+}
+let salary = person3.job3?.salary?.showSalary()
+var workersArray = person3.workers
+workersArray?.append(Worker3())
+workersArray
