@@ -25,7 +25,7 @@ str1 = "Hello, Tim"
 
 //DATA TYPES///////////////////////////////////////////////////////////
 //Character, String, Int, Double, Float, Bool
-let x1: Character = "q"
+//let x1: Character = "q"
 let y1: String = "Poland"
 let z1: Double = 1.000_052_093_845_092_394_858 //15 digits after comma
 let w1: Float = 1.032_490_728_357_09//6 digits after comma
@@ -50,7 +50,7 @@ f += e
 let defaultName = "Steve"
 let name: String = "Ivan"
 
-let myName = name ?? defaultName
+//let myName = name ?? defaultName
 
 //УНАРНЫЙ ОПЕРАТОР -, ТЕРНАРНЫЙ ОПЕРАТОР
 -5
@@ -910,56 +910,56 @@ for i in arrayTwo2 {
 }
 
 // ARC ////////////////////////////////////////////////////////////////////
-class Person2 {
-    // weak only works with optinals
-     var dog: Dog2?
-    
-    deinit {
-        print("Person is free")
-    }
-}
-
-class  Dog2 {
-   unowned var person: Person2 // unowned must have some value or initialized
-    init() {
-        self.person = Person2()
-    }
-    deinit {
-        print("Dog is free")
-    }
-}
-let firstScope = true
-let secondScope = true
-
-//---------------------------------FIRST----------------------------------
-if firstScope {
-    let person = Person2()
-    let dog = Dog2()
-    //---------------------------------SECOND----------------------------------
-    if secondScope {
-        
-        
-        person.dog = dog
-        dog.person = person
-        print("second scope has ended")
-    }
-    //---------------------------------SECOND ENDS----------------------------------
-    print("firstScope has ended")
-}
-//---------------------------------FIRST ENDS----------------------------------
-print("finish")
-
-
-//ARC in Closures ///////////////////////////////////////////////////////////////
-
-var x2 = "a"
-let closure2: () -> () = {
-    print(x)
-}
-closure2()
-x2 = "b"
-closure2()
-
+//class Person2 {
+//    // weak only works with optinals
+//     var dog: Dog2?
+//
+//    deinit {
+//        print("Person is free")
+//    }
+//}
+//
+//class  Dog2 {
+//   unowned var person: Person2 // unowned must have some value or initialized
+//    init() {
+//        self.person = Person2()
+//    }
+//    deinit {
+//        print("Dog is free")
+//    }
+//}
+//let firstScope = true
+//let secondScope = true
+//
+////---------------------------------FIRST----------------------------------
+//if firstScope {
+//    let person = Person2()
+//    let dog = Dog2()
+//    //---------------------------------SECOND----------------------------------
+//    if secondScope {
+//
+//
+//        person.dog = dog
+//        dog.person = person
+//        print("second scope has ended")
+//    }
+//    //---------------------------------SECOND ENDS----------------------------------
+//    print("firstScope has ended")
+//}
+////---------------------------------FIRST ENDS----------------------------------
+//print("finish")
+//
+//
+////ARC in Closures ///////////////////////////////////////////////////////////////
+//
+//var x2 = "a"
+//let closure2: () -> () = {
+//    print(x)
+//}
+//closure2()
+//x2 = "b"
+//closure2()
+//
 
 // Optinal chaining //////////////////////////////////////////////////////////////
 class Person3 {
@@ -997,3 +997,86 @@ let salary = person3.job3?.salary?.showSalary()
 var workersArray = person3.workers
 workersArray?.append(Worker3())
 workersArray
+
+
+// Error Handling ////////////////////////////////////////
+enum PossibleErrors: Error {
+    case notInStock
+    case notEnoughMoney
+}
+
+struct Book {
+    let price: Int
+    var count: Int
+}
+class Library {
+    var deposit = 11
+    var libraryBooks = ["Book1": Book(price: 10, count: 1), "Book2": Book(price: 11, count: 0), "Book3": Book(price: 12, count: 3)]
+    
+    func getTheBook(withName: String) throws {
+        guard var book = libraryBooks[withName] else {
+            throw PossibleErrors.notInStock
+        }
+        guard book.count > 0 else {
+            throw PossibleErrors.notInStock
+        }
+        guard book.price  <= deposit else {
+            throw PossibleErrors.notEnoughMoney
+        }
+        
+        
+        deposit -= book.price
+        book.count -= 1
+        libraryBooks[withName] = book
+        print("You got the Book: \(withName)")
+    }
+}
+
+let library = Library()
+try? library.getTheBook(withName: "Book1")
+library.deposit
+library.libraryBooks
+
+do {
+    try library.getTheBook(withName: "Book1")
+}
+catch PossibleErrors.notInStock {
+    print("Book is not in stock")
+} catch PossibleErrors.notEnoughMoney {
+    print("Not enough money")
+}
+
+func doConnection() throws -> Int {
+    return 10
+}
+// the same
+let x2 = try? doConnection()
+//
+// the same
+var y2: Int?
+do {
+    y2 = try doConnection()
+}
+catch {
+    y2 = nil
+}
+//
+
+//defer
+var attempt = 0
+func whateverFunc(param: Int) -> Int {
+    defer {
+        attempt += 2
+    }
+    defer {
+        attempt *= 10
+    }
+    
+    switch param {
+        case 0: return 100
+        case 1: return 200
+        default: return 400
+    }
+}
+whateverFunc(param: 1)
+attempt
