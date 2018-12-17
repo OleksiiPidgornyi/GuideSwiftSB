@@ -1208,4 +1208,23 @@ changeParameters(param1: &a3, param2: &b3)
 a3
 b3
 
-
+// Update SWIFT from 3.0 to 4.0
+let someString = "some string"
+let multithreadingString =
+"""
+This is oneString
+This is oneString
+This is oneString
+This is oneString
+"""
+for character in string.characters {
+    print(character)
+}
+for character in string {
+    print(character)
+}
+let array4 = ["1","2","3","4"]
+print(array4[0..<2])
+print(array4[0...2])
+print(array4[0...]) //will print out all array
+print(array4[1...]) //will print out all array from index 1
