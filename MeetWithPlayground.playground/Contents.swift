@@ -1108,7 +1108,7 @@ work.workPlace[0]
 work[1]
 
 // Extensions ////////////////////////////////////////////
-//In extensions you can use only
+//In extensions you can use only computed properties and functions
 //NO stored properties, NO lazy properties
 
 extension Int {
@@ -1126,3 +1126,38 @@ extension Int {
 }
 var g1 = 3
 g1.vStepin(powerValue: 3)
+
+// Protocols /////////////////////////////////////////
+protocol Human3 {
+    var name: String { get }
+}
+protocol Driver: Human3 {
+    var car: Bool { get }
+    var license: Bool { get }
+    
+    func toDrive() -> Bool
+}
+
+extension Driver {
+    var license: Bool { return true }
+    var car: Bool { return true }
+    
+    func toDrive() -> Bool {
+        return true
+    }
+}
+
+extension FirmDriver: Driver {
+    var license: Bool {
+        return false
+    }
+    var name: String {
+        return "Viktor"
+    }
+}
+class FirmDriver{
+    
+}
+
+let firmDriver = FirmDriver()
+firmDriver.license
