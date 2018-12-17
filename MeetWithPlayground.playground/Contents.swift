@@ -1107,3 +1107,22 @@ var work = WorkPlace(table: "table", workPlace: ["chair", "armchair", "lamp"])
 work.workPlace[0]
 work[1]
 
+// Extensions ////////////////////////////////////////////
+//In extensions you can use only
+//NO stored properties, NO lazy properties
+
+extension Int {
+    var isEven: Bool {
+        return self % 2 == 0 ? true : false
+    }
+    
+    func vStepin(powerValue: Int) -> Int {
+       var tempValue = self
+        for _ in 1..<powerValue {
+        tempValue *= self
+        }
+        return tempValue
+    }
+}
+var g1 = 3
+g1.vStepin(powerValue: 3)
