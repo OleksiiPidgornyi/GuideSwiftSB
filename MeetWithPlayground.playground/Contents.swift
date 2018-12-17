@@ -1161,3 +1161,51 @@ class FirmDriver{
 
 let firmDriver = FirmDriver()
 firmDriver.license
+
+
+// Generics ////////////////////////////////////////////////////
+class A1 {}
+let arr = Array<Int>()
+arr
+let array3 = [1, 2, 3, 4]
+let arrayStr3 = ["one", "two", "three"]
+let arrayCls3 = [A(), A(), A()]
+
+//func paramValue(param: Int) -> String {
+//    return "\(param)"
+//}
+//func paramValue(param: String) -> String {
+//    return "\(param)"
+//}
+
+func paramValue<T>(param: T) -> String {
+    return "\(param)"
+}
+paramValue(param: 5)
+paramValue(param: "C'mon")
+paramValue(param: true)
+
+
+struct HelphulFunctions<T: Comparable, U: Equatable> {
+    func paramValue(paramValue1: T,paramValue2: U) -> String {
+        return "\(paramValue1), \(paramValue2)"
+    }
+}
+
+let example = HelphulFunctions<String, Int>()
+example.paramValue(paramValue1: "String1", paramValue2: 5)
+
+
+var a3 = "b3"
+var b3 = "a3"
+
+func changeParameters<T>(param1: inout T, param2: inout T) {
+    let temp = param1
+    param1 = param2
+    param2 = temp
+}
+changeParameters(param1: &a3, param2: &b3)
+a3
+b3
+
+
